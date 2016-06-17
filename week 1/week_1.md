@@ -71,6 +71,7 @@
 * STF?
 * javascript 안에 HTML 을 쓴단말인가...
 * 개념분리(Separation of Concerns)에 맞나...
+* You don't have to use JSX with React. You can just use plain JS. However, we recommend using JSX because it is a concise and familiar syntax for defining tree structures with attributes
 
 ### 참고문헌
 
