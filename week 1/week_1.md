@@ -55,7 +55,21 @@
 * 이러한 작업은 reconciliation 이라고 한다...고..(아 영어)
 
 ### 한번 만들어 봅시다.
-
+```javascript
+var Nav = React.createClass({
+	render : function() {
+		
+		var getClass = function(data) {
+			return  data === 1 ? "on" : "";
+		};
+		return (
+			<li className={getClass(this.props.imageOrder)}>
+				<a href="#n" data-index={this.props.index} />
+			</li>
+		);
+	}
+});
+```
 ### JAX 란?
 
 * React로 개발하다 보면 String도 아닌 먼가를 return 하고 있는데..
@@ -68,7 +82,7 @@
 
 ### JAX를 쓰는게 과연 좋을까?
 
-* STF?
+* WTF?
 * javascript 안에 HTML 을 쓴단말인가...
 * 개념분리(Separation of Concerns)에 맞나...
 * You don't have to use JSX with React. You can just use plain JS. However, we recommend using JSX because it is a concise and familiar syntax for defining tree structures with attributes
