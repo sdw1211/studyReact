@@ -54,7 +54,7 @@ var Comment = React.createClass({
     }
 });
 ```
-### 그 다음 것을 붙여 봅시다 - CommentBox
+### 그 다음 것도 만들어봅시다. - CommentBox
 ```javascript
 var CommentBox = React.createClass({
 	render : function() {
