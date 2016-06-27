@@ -7,7 +7,7 @@ https://facebook.github.io/react/blog/2014/10/14/introducing-react-elements.html
 https://gist.github.com/sebmarkbage/fcb1b6ab493b0c77d589
 
 ## Comments 엔진을 Components 기반으로 설계하기
-![Components 기반 설계](CommentBox_Image.png)
+![Components 기반 설계](https://raw.githubusercontent.com/sdw1211/studyReact/master/week%202/CommentBox_Image.PNG)
 ## 자 그럼 한번 만들어볼까요??
 ### html 결과물
 ```html
