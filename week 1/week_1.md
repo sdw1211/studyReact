@@ -78,9 +78,9 @@ var Nav = React.createClass({
 * compile vs transpile
 * babel 라이브러리를 이용해서 transpile 된다고 보면 되요..
 
-### JAX를 사용해보자!
+### JSX를 사용해보자!
 
-### JAX를 쓰는게 과연 좋을까?
+### JSX를 쓰는게 과연 좋을까?
 
 * WTF?
 * javascript 안에 HTML 을 쓴단말인가...
