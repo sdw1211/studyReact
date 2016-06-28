@@ -9,10 +9,13 @@
 * element는 실제 instance는 아니고, 사용자가 React에게 나 이런 것이 화면에 있었으면 좋겠네 하고 알려주는 방법
 * 메소드 호출 불가(호출할 메소드도 없음 왜냐 딸랑 두개 일 뿐이니..)
 * DOM Element를 하나 예를 들어보면
-  ```html
-    <button class="button button-blue"><b>OK</b></button>
-  ```
+
+ ```html
+  <button class="button button-blue"><b>OK</b></button>
+ ```
+
 * 이 DOM Element 의 React에서의 실제 tree 구조를 보면
+  
   ```javascript
     {
       type: 'button',
@@ -27,8 +30,10 @@
       }
     }  
   ```
+  
 * 실제 DOM Instance가 아닌 표현체
 * 그럼 React Element는 먼가 틀린가요?
+  
   ```javascript
     {
       type: Button,
@@ -38,6 +43,7 @@
       }
     }  
   ```
+  
 * An element describing a component is also an element, just like an element describing the DOM node. They can be nested and mixed with each other.
 * 결론은 React Element나 DOM Element 는 서로 같기 때문에 서로 각자를 사용할 수 있다.(is a, has a 관계 둘다 가능)
 * Component 는 properties 를 받아서 element tree를 리턴해주는 것
