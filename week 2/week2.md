@@ -3,18 +3,19 @@
 ## React.js 에서 이야기 하는 element와 component의 관계?
 
 * An element is a plain object describing a component instance or DOM node and its desired properties.
-* element에는 **두 가지의 정보**만을 가지고 있다
+* element에는 **두 가지의 정보**를 가지고 있다
   * type -> component type
   * property
-* element는 실제 instance는 아니고, 사용자가 React에게 나 이런 것이 화면에 있었으면 좋겠네 하고 알려주는 방법
-* 메소드 호출 불가(호출할 메소드도 없음 왜냐 딸랑 두개 일 뿐이니..)
-* DOM Element를 하나 예를 들어보면
+* element는 실제 instance는 아니다(그래서 실제 돔이랑 관련이 없다.)
+* React에게 나 이런 것 좀 그려도 될까 하고 알려주는 하나의 설계도 같은 개념?
+* 메소드나 이런 것은 존재하지 않는다.
+* DOM Element로 하나의 예를 만들어보면
 
  ```html
   <button class="button button-blue"><b>OK</b></button>
  ```
 
-* 이 DOM Element 의 React에서의 실제 tree 구조를 보면
+* 이 DOM Element 를 React에서의 elements 로 구현을 하면.
   
   ```javascript
     {
@@ -31,8 +32,9 @@
     }  
   ```
   
-* 실제 DOM Instance가 아닌 표현체
-* 그럼 React Element는 먼가 틀린가요?
+* Vitural DOM에서 위와 같은 형태로 되어 있다.
+* 그렇기 때문에 실제 DOM과는 연관이 되지 않는다.
+* 그럼 Dom Element는 저렇고 React Element 는 어떨까요?
   
   ```javascript
     {
@@ -44,10 +46,11 @@
     }  
   ```
   
-* An element describing a component is also an element, just like an element describing the DOM node. They can be nested and mixed with each other.
+* 생긴게 똑같다. 결론은 React Element나 DOM Element나 서로 형태가 똑같기 때문에, 서로 부모 자식관계가 될 수도 있고, 서로 동등한 관계로 될 수가 있다.
 * 결론은 React Element나 DOM Element 는 서로 같기 때문에 서로 각자를 사용할 수 있다.(is a, has a 관계 둘다 가능)
-* Component 는 properties 를 받아서 element tree를 리턴해주는 것
-* The returned element tree can contain both elements describing DOM nodes, and elements describing other components. This lets you compose independent parts of UI without relying on their internal DOM structure.
+* React 에서 Component의 역할은 Property를 Input으로 받아서 Ouput으로 React Element Tree를 준다.
+* 이 같은 특징을 이용해서 좀 더 재사용가능하고, 유연한 Component를 구성해서 사용할 수 있다.
+
 * Component 를 선언하는 방법
   * function 방법
 ```javascript
@@ -104,6 +107,12 @@ const Button = React.createClass({
   }
 });
 ```
+
+* 여러가지 방법이 있는데 이것들은 전부 React Component 다!! 
+* 하지만 위와 같은 방식으로 직접 element를 생성하는 건 추천하지 않고, JAX를 사용하거나 createElement 등을 이용해서 처리하자~!
+* Top-Down Reconciliation
+  * ReactDOM.render() 나 setState()가 호출 될 때 reconciliation이라는 절차가 실행이된다.
+  * 해당 절차는 Dom elemement 가 리턴 될 때까지 계속 동작하고, Dom element가 리턴 될 때 reactDOM, reactNative 와 같은 Rederer 들이 최적화된 Reder 를 실행하게 된다.
 
 ## Comments 엔진을 Components 기반으로 설계하기
 
