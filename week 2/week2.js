@@ -1,7 +1,11 @@
 var Comment = React.createClass({
-  propTypes : {
-    author : React.PropType.string,
-    body : React.PropType.string
+  getDefaultProps : function() {
+      return {
+        author : "HAHAHAH"  
+      };
+  }, propTypes : {
+    author : React.PropTypes.string.isRequired,
+    body : React.PropTypes.string
   },  render : function() {
       return (
           <div className="comment">
@@ -24,7 +28,7 @@ var CommentBox = React.createClass({
                     {id : 2, author : "Rosaria Huh", body:"Hello! Antonio"}
             ];
 
-            return commentsList.map((comment) => <Comment author={comment} body={comment.body} key={comment.id} />);
+            return commentsList.map((comment) => <Comment body={comment.body} key={comment.id} />);
     }, _getCommentsTitle : function(commentCount) {
         if (commentCount === 0) {
             return "No comments yet";

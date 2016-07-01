@@ -453,6 +453,55 @@ var Comment = React.createClass({
 });
 ```
 
+## 그럼 속성이 꼭 필요한 값인 경우는?
+### isRequired 값을 이용해서 처리
+```javascript
+var Comment = React.createClass({
+  propTypes : {
+    author : React.PropType.string.isRequired,
+    body : React.PropType.string.isRequired
+  }, render : function() {
+      return (
+          <div className="comment">
+              <p className="comment-header">{this.props.author}</p>
+              <p className="comment-body">{this.props.body}</p>
+              <div className="comment-footer">
+                  <a herf="#" className="comment-footer-delete">
+                      DELETE COMMENT
+                  </a>
+              </div>
+          </div>
+      );
+  }
+});
+```
+
+## 기본 값도 설정이 가능해요.
+```javascript
+var Comment = React.createClass({
+    getDefaultProps : function() {
+      return {
+        author : "HAHAHAH"  
+      };
+  }, propTypes : {
+    author : React.PropType.string.isRequired,
+    body : React.PropType.string.isRequired
+  }, render : function() {
+      return (
+          <div className="comment">
+              <p className="comment-header">{this.props.author}</p>
+              <p className="comment-body">{this.props.body}</p>
+              <div className="comment-footer">
+                  <a herf="#" className="comment-footer-delete">
+                      DELETE COMMENT
+                  </a>
+              </div>
+          </div>
+      );
+  }
+});
+```
+
 # 참고 문헌
 
 - 코드스쿨 강의(<http://www.codeschool.com>)
