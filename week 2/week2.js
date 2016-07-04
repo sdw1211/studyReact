@@ -41,10 +41,10 @@ var CommentBox = React.createClass({
                     var comments = this._getComments(),
                              title = this._getCommentsTitle(comments.length);
             return (
-                <div class="comment-box">
+                <div className="comment-box">
                         <h3>JOIN THE DISCUSSION</h3>
-                        <h4 class="comment-count">{title}</h4>
-                        <div class="comment-list">
+                        <h4 className="comment-count">{title}</h4>
+                        <div className="comment-list">
                                 {comments}
                         </div>
                 </div>
@@ -53,6 +53,6 @@ var CommentBox = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox />,
+  <CommentBox  />,
   document.getElementById("content")
 );
