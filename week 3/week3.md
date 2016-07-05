@@ -58,7 +58,7 @@ render() {
 ### 한번 구현을 해 봅시다.
 
 1. 먼저 state 를 확인하는 구분을 추가
-    ```javascript
+```javascript
     var CommentBox = React.createClass({
         ...
         render : function() {
@@ -78,9 +78,9 @@ render() {
             );
         }
     });
-    ```
+```
 2. showComments 가 true일 경우 보여줘야 할 부분을 if 문에 추가
-    ```javascript
+```javascript
     var CommentBox = React.createClass({
         ...
         render : function() {
@@ -99,9 +99,9 @@ render() {
             );
         }
     });
-    ```
+```
 3. state에 초기 값을 설정
-    ```javascript
+```javascript
     var CommentBox = React.createClass({
         getInitialState: function() {
             return {
@@ -119,14 +119,14 @@ render() {
             };
         }
     }
-    ```
+```
 4. state 를 수정하는 방법
-    ```javascript
+```javascript
     this.state.showComments = ture; //잘못된 방법
     this.setState({showComments : true}); // 옳은 방법
-    ```
+```
 5. 버튼 이벤트를 이용해서 상태를 변경하기
-    ```javascript
+```javascript
     var CommentBox = React.createClass({
         ...
         render:function() {
@@ -145,7 +145,7 @@ render() {
             });
         }
     });
-    ```
+```
 
 ## Event 합치기
 
