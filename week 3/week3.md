@@ -43,11 +43,14 @@
 - 새로운 props나 state를 받고 reder() 함수를 호출하기 전에 실행하는 함수
 - 받은 state와 props 값을 검증해서 false을 리턴할 경우 다음 단계 전부 무시
 - 잘못할 경우 알 수 없는 버그 찾는게 쉽지 않기 때문에 잘 써야 함
+
 #### componentWillUpdate(nextProps, nextState)
 - render() 하고 난 후에 실행하는 함수
 - 여기서 setState를 사용할 경우 무한 루프에 빠짐
+
 #### componentDidUpdate(prevProps, prevState)
 - render() 하고 난 후에 실행하는 함수
+
 ### Unmounting
 #### componentWillUnmount()
 - DOM에서 unmount 되기 직전에 호출하는 함수
