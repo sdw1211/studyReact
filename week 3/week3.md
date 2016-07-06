@@ -2,7 +2,8 @@
 
 ## React.js Life Cycle
 
-## render()
+## Component Specifications
+### render()
 
 1. props와 stats 데이터 확인
 1. 해당 데이터에 맞게 element를 생성(Dom element 또는 React Component)
@@ -10,18 +11,46 @@
 1. render() 함수는 pure 하기 때문에, state에 따라 변경되지 않고 매 번 같은 결과 값을 나타낸다.
 1. 즉 브라우저에서 어떤 액션이 발생을 하더라고 render() 된 데이터는 영향을 받지 않는다.
 
-## Mounting
-### componentWillMount()
-### componentDidMount()
+### getInitialState()
 
-## Updating
-### componentWillReceiveProps()
-### shouldComponentUpdate()
-### componentWillUpdate()
-### componentDidUpdate()
+1. Component 가 마운트 되기 직전에 한번 만 동작
+2. state 값을 초기화할 목적으로 사용
 
-## Unmounting
-### componentWillUnmount()
+### getDefaultProps()
+
+1. Component 를 선언할 때 한 번 생성되어 캐싱되어 있음
+2. props 값에 default 값을 선언할 목적으로 사용
+
+
+## Lifecycle Methods
+### Mounting
+#### componentWillMount()
+- Mount 가 되기 직전에 한 번 실행하는 함수
+- state 가 변경될 경우 아래 updating 관련 함수가 호출하는게 아니고 변경된 state 값을 이용해서 render() 함수가 호출
+#### componentDidMount()
+- Mount 가 되고 난 후에 실행하는 함수
+- 이 단계에서부터 자식 노드의 ref 데이터를 가져올 수 있다.
+- 자식 노드에 componentDidMount 함수가 있는 경우 그것 부터 실행
+- Ajax 를 이용한 데이터 변경 로직을 이 단계에서 사용한다.
+
+### Updating
+#### componentWillReceiveProps(nextProps)
+- 새로운 프로퍼티를 받거나 프로퍼티 값이 변경되었을 때 실행하는 함수
+- Mount 할 때는 동작하지 않음
+- props가 변경할 때 state 값을 변경할 경우가 있는 경우 해당 함수에서 호출
+
+#### shouldComponentUpdate(nextProps, nextState)
+- 새로운 props나 state를 받고 reder() 함수를 호출하기 전에 실행하는 함수
+- 받은 state와 props 값을 검증해서 false을 리턴할 경우 다음 단계 전부 무시
+- 잘못할 경우 알 수 없는 버그 찾는게 쉽지 않기 때문에 잘 써야 함
+#### componentWillUpdate(nextProps, nextState)
+- render() 하고 난 후에 실행하는 함수
+- 여기서 setState를 사용할 경우 무한 루프에 빠짐
+#### componentDidUpdate(prevProps, prevState)
+- render() 하고 난 후에 실행하는 함수
+### Unmounting
+#### componentWillUnmount()
+- DOM에서 unmount 되기 직전에 호출하는 함수
 
 ![React Life Cycle](https://scontent.xx.fbcdn.net/t31.0-8/10697276_10154774642145430_8286640594425143330_o.jpg)
 https://www.facebook.com/photo.php?fbid=10154774642145430&set=gm.1491610957781164&type=1&theater
