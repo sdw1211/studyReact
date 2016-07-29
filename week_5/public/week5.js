@@ -38,7 +38,7 @@ class CommentBox extends React.Component {
             );
     }
     _sendComment(comment) {
-        $.post("/send", {...comment}).done(
+        $.post("/sendAndGet", {...comment}).done(
                 (comments) => {
                     this.setState({comments});
                 }
@@ -48,7 +48,7 @@ class CommentBox extends React.Component {
     _deleteComment(key) {
         $.ajax({
             method:"delete",
-            url:`/delete/${key}`
+            url:`/deleteAndGet/${key}`
         }).done(
                 (comments) => {
                     this.setState({comments});
