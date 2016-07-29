@@ -1,15 +1,16 @@
 class CommentForm extends React.Component {
     _formSubmit(e) {
         e.preventDefault();
-        this.props.addComment(this._name.value, this._content.value);
+        let commentToAdd = {name : this._nameTag.value, body : this._bodyTag.value};
+        this.props.sendComment(commentToAdd);
     }
     render() {
         return (
             <form className="comment-form" onSubmit={this._formSubmit.bind(this)}>
                 <label>Join the discussion</label>
                 <div className="comment-form-fields">
-                    <input placeholder="Name:" ref={input => this._name = input} />
-                    <textarea placeholder="Content:" ref={textarea => this._content = textarea}></textarea>
+                    <input placeholder="Name:" ref={input => this._nameTag = input} />
+                    <textarea placeholder="Content:" ref={textarea => this._bodyTag = textarea}></textarea>
                 </div>
                 <div className="Comment-form-actions">
                     <button type="submit">
@@ -95,14 +96,10 @@ class CommentBox extends React.Component {
         }
     }
     
-    _addComment(name, body) {
-        let data = {name, body};
-        this._sendComment(data);
-    }
     render() {
         return (
             <div className="comment-box">
-                <CommentForm addComment={this._addComment.bind(this)} />
+                <CommentForm sendComment={this._sendComment.bind(this)} />
                 <h3>Comments</h3>
                 <h4 className="commnet-count">{this._getCommentCountMessage()}</h4>
                 <button onClick={this._toggleViewButton.bind(this)}>{this._showCommentsMessage()}</button>
