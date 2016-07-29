@@ -31,29 +31,21 @@ class CommentBox extends React.Component {
         };
     }
     _fetchComments() {
-        $.get("/get").done(
-                (comments) => {
-                    this.setState({comments});
-                }
-            );
+        $.get("/get").done(this._setCommentsAtState.bind(this));
     }
     _sendComment(comment) {
-        $.post("/sendAndGet", {...comment}).done(
-                (comments) => {
-                    this.setState({comments});
-                }
-            );
+        $.post("/sendAndGet", {...comment}).done(this._setCommentsAtState.bind(this));
     }
 
     _deleteComment(key) {
         $.ajax({
             method:"delete",
-            url:`/deleteAndGet/${key}`
-        }).done(
-                (comments) => {
-                    this.setState({comments});
-                }
-            );
+            url:`/removeAndGet/${key}`
+        }).done(this._setCommentsAtState.bind(this));
+    }
+    
+    _setCommentsAtState(comments) {
+        this.setState({comments});
     }
     
     componentDidMount() {
